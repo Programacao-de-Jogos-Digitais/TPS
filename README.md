@@ -1,2 +1,2 @@
 # TPS
- Jogo de tiro eterceira m primeira pessoa
+ Jogo de tiro em terceira pessoa
