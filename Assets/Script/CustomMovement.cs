@@ -8,7 +8,10 @@ public class CustomMovement : MonoBehaviour
     
     //Objeto do tipo Animator
     public Animator anim;
-    // Start is called before the first frame update
+    
+    public GameObject arma;
+
+
     void Start()
     {
         //Desabilita a camera de inicio
@@ -16,6 +19,9 @@ public class CustomMovement : MonoBehaviour
         
         //Referencia o objeto anim
         anim = GetComponent<Animator>();
+
+        //Arma invisivel 
+        arma.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,10 +31,13 @@ public class CustomMovement : MonoBehaviour
         {
             //Se clicar no mouse ativa camera
             animCamera.SetActive(true);
-            print("Mouse pressionado!");
+            //print("Mouse pressionado!");
 
             //Deixa objeto ativo
             anim.SetBool("anim", true);
+            
+            //Arma visivel 
+            arma.SetActive(true);
         }
         else
         {
@@ -37,6 +46,9 @@ public class CustomMovement : MonoBehaviour
 
             //Deixa objeto inativo
             anim.SetBool("anim", false);
+
+            //Arma invisivel 
+            arma.SetActive(false);
         }
         
     }
