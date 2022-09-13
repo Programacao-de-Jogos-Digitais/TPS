@@ -10,6 +10,7 @@ public class CustomMovement : MonoBehaviour
     public Animator anim;
     
     public GameObject arma;
+    public GameObject disparo;
 
 
     void Start()
@@ -22,11 +23,13 @@ public class CustomMovement : MonoBehaviour
 
         //Arma invisivel 
         arma.SetActive(false);
+        disparo.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Mira
         if(Input.GetMouseButton(1))
         {
             //Se clicar no mouse ativa camera
@@ -39,6 +42,37 @@ public class CustomMovement : MonoBehaviour
             //Arma visivel 
             arma.SetActive(true);
         }
+
+        //Atira direto
+        else if(Input.GetMouseButton(0))
+        {
+            //Se clicar no mouse ativa camera
+            animCamera.SetActive(true);
+            //print("Mouse pressionado!");
+
+            //Deixa objeto ativo
+            anim.SetBool("anim", true);
+            
+            //Arma visivel 
+            arma.SetActive(true);
+            disparo.SetActive(true);
+        }
+
+        //Mira e atira
+        else if(Input.GetMouseButton(0) & Input.GetMouseButton(0))
+        {
+            //Se clicar no mouse ativa camera
+            animCamera.SetActive(true);
+            //print("Mouse pressionado!");
+
+            //Deixa objeto ativo
+            anim.SetBool("anim", true);
+            
+            //Arma visivel 
+            arma.SetActive(true);
+            disparo.SetActive(true);
+        }
+        
         else
         {
             //O contrário fica desativada
@@ -49,6 +83,7 @@ public class CustomMovement : MonoBehaviour
 
             //Arma invisivel 
             arma.SetActive(false);
+            disparo.SetActive(false);
         }
         
     }
